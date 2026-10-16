@@ -1,0 +1,95 @@
+\section{Setting: one forward process, two thresholds}
+\label{sec:setting}
+
+\subsection{Forward process and entropy}
+
+Let $\dot x = f(x)$ be a Hamiltonian flow on $\mathbb{R}^{2n}$ with flow map $\Phi_t$, and let $X_0$ have density $\rho_0$. The observer sees
+\begin{equation}
+Y_t = \Phi_t(X_0) + \sigma(t) Z, \qquad \sigma(t) = \sigma_0 e^{rt},
+\label{eq:forward}
+\end{equation}
+with $Z$ standard normal and independent of $X_0$. The density of $Y_t$ is $p_t = \rho_t * N(0,\sigma^2 I)$, with $\rho_t$ the density of $X_t = \Phi_t(X_0)$. We write
+\begin{equation}
+s = \nabla \log p_t, \qquad m(y,t) = \E[f(X_t) \mid Y_t = y]
+\end{equation}
+for the score and for the conditional velocity, and $\E$ for the expectation over $Y_t \sim p_t$. Phase-space points are $x = (q, p)$; the letter $p$ also denotes the density $p_t$, and the meaning is always clear from the context.
+
+\begin{proposition}[Fokker--Planck equation of the forward process]
+\label{prop:fp}
+For any smooth flow and any $\rho_0$ with finite second moments,
+\begin{equation}
+\partial_t p = -\dv(m\,p) + r\sigma^2 \Delta p .
+\label{eq:fp}
+\end{equation}
+\end{proposition}
+The proof (Appendix~\ref{app:fp}) combines the Liouville equation for $\rho_t$ with the heat equation in the variance $\sigma^2$, which grows at the rate $2r\sigma^2$. In the language of diffusion models~\cite{song2021}, the forward process has the marginals of a process with drift $m$ and diffusion coefficient $D = r\sigma^2$, that is, $g(t)^2 = d\sigma^2/dt = 2r\sigma^2$. Equation~\eqref{eq:fp} is exact; it requires no expansion in $\sigma$. Multiplying it by $-(1+\log p)$ and integrating by parts gives the entropy rate of $S = -\E[\log p_t]$,
+\begin{gather}
+\frac{dS}{dt} = r\sigma^2 \tr F + \Sigma, \label{eq:Sdot}\\
+\tr F = \E|s|^2, \qquad \Sigma = -\E[s\cdot m], \nonumber
+\end{gather}
+which is Eq.~\eqref{eq:SC} with the critical rate
+\begin{equation}
+R = -\frac{\Sigma}{\sigma^2 \tr F} = \frac{\E[s\cdot m]}{\sigma^2\,\E|s|^2}.
+\label{eq:R}
+\end{equation}
+The entropy grows if and only if $r > R$. This is threshold (II).
+
+\subsection{The resolution gap}
+
+Let $\lambda(x)$ be the largest eigenvalue of $\Sym Df(x)$ and $\kappa = \sup_x \lambda(x)$, the largest symmetric strain rate. For every Gaussian state $R \leq \kappa$~\cite{namba2026gap}, and in one degree of freedom the best Gaussian state has $(\kappa - R)/\sigma \to 2\sqrt{2\beta\kappa}$ as $\sigma\to 0$, where $\beta$ measures how fast $\lambda$ falls off around its maximum~\cite{namba2026gap}. For the pendulum, $H = p^2/2 - \cos q$, one has $\kappa = 1$ at the top $q = \pi$ and the limit is $1$. For $n$ degrees of freedom and $H = |p|^2/2 + V(q)$, the limit is bounded above by
+\begin{equation}
+\Gamma = 2\tr\big[(B^{1/2} C B^{1/2})^{1/2}\big],
+\label{eq:Gamma}
+\end{equation}
+where $B$ is minus one half of the configuration-space Hessian of $\lambda$ at its maximum and $C = \operatorname{diag}(2\kappa, \kappa, \dots, \kappa)$; the optimum found numerically equals $\Gamma$, with a finite-resolution correction $(\kappa - R^*)/\sigma = \Gamma - c_1\sigma + O(\sigma^2)$~\cite{namba2026many}. We use two coupled pendulums,
+\begin{equation}
+V(q_1, q_2) = -\cos q_1 - \cos q_2 - \varepsilon \cos(q_1 - q_2),
+\label{eq:coupled}
+\end{equation}
+with $\varepsilon = 0.1$ and $0.3$. Table~\ref{tab:systems} collects the constants. The quantity we want a learned score to see is the \emph{margin} $(\kappa - R)/\sigma$, which is of order one, while $\kappa - R$ itself is of order $\sigma$.
+
+\begin{table}[t]
+\caption{Systems used in this article. $\kappa$: largest symmetric strain rate; $\Gamma$: leading coefficient of the gap, Eq.~\eqref{eq:Gamma}; $c_1$: finite-resolution slope of the best Gaussian state, both from Ref.~\cite{namba2026many}.}
+\label{tab:systems}
+\begin{ruledtabular}
+\begin{tabular}{lcccc}
+system & dim. & $\kappa$ & $\Gamma$ & $c_1$ \\
+\hline
+pendulum & 2 & $1$ & $1$ & $7/8$ \\
+coupled, $\varepsilon\!=\!0.1$ & 4 & $1.0525$ & $1.4025$ & $1.70$ \\
+coupled, $\varepsilon\!=\!0.3$ & 4 & $1.1720$ & $1.8475$ & $2.38$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\subsection{A stochastic equation with the physical drift}
+
+A diffusion model built on Eq.~\eqref{eq:forward} would like to write the forward process as a stochastic differential equation whose drift is the physical flow,
+\begin{equation}
+dY = \big(f(Y) + b(Y)\big)\,dt + G(Y)^{1/2}\, dW,
+\label{eq:sde}
+\end{equation}
+so that the dynamics is known and only the score has to be learned. Matching the Fokker--Planck operator of Eq.~\eqref{eq:sde} to Eq.~\eqref{eq:fp}, with $m$ expanded in $\sigma$ around $y$, fixes the diffusion matrix and the drift correction (Appendix~\ref{app:sde}):
+\begin{equation}
+G = 2\sigma^2\big(rI - \Sym Df\big), \qquad b = \Big(0, \tfrac{\sigma^2}{2}\nabla_q \Delta_q V\Big).
+\label{eq:G}
+\end{equation}
+For linear flows Eq.~\eqref{eq:sde} reproduces the law of $Y_t$ exactly; for nonlinear flows a remainder of third order in the expansion is left, of relative size $\sigma|\nabla^3 V|$ (for the pendulum, $\sigma|\sin q|$, which vanishes at the top). A diffusion matrix must be positive semidefinite.
+
+\begin{proposition}[threshold (I)]
+\label{prop:sde}
+$G(y) \succeq 0$ for every $y$ if and only if $r \geq \kappa$. The condition does not depend on $\sigma$.
+\end{proposition}
+\begin{proof}
+$G(y) \succeq 0$ if and only if $r \geq \lambda(y)$, and $\sup_y \lambda(y) = \kappa$. The factor $2\sigma^2 > 0$ does not change the sign.
+\end{proof}
+For a state that reaches the point of maximal strain, $r < \kappa$ means that the noise would have to \emph{remove} width there, along the stretching direction, faster than the flow adds it. No Brownian noise can do that. This is the threshold of Ref.~\cite{namba2026threshold}, stated here for the forward process~\eqref{eq:forward}. The same matrix enters the reverse-time equation~\cite{anderson1982,song2021}, whose drift is $f + b - \dv G - G s$ and whose noise is again $G^{1/2}$. By contrast, the probability-flow equation $\dot y = m - r\sigma^2 s$ follows from Eq.~\eqref{eq:fp} without any condition on $r$.
+
+\subsection{The band}
+
+Threshold (I) sits at $\kappa$ for every $\sigma$; threshold (II) sits at $R$, which for every Gaussian state is at most $\kappa$ and for the best one is about $\Gamma\sigma$ below it. In the band
+\begin{equation}
+R < r < \kappa
+\label{eq:band}
+\end{equation}
+the coarse-grained entropy grows, but no stochastic equation with the physical drift produces the blur. The arrow of time seen by the observer is therefore not the arrow of a noisy physical dynamics: it is present where such a dynamics does not exist. The width of the band is the margin times $\sigma$, and reading it from data is the subject of the rest of this article.

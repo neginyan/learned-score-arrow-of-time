@@ -1,0 +1,34 @@
+\section{Proofs}
+\label{app:proofs}
+
+\subsection{Proposition~\ref{prop:fp}}
+\label{app:fp}
+
+Let $\rho_t$ be the density of $X_t = \Phi_t(X_0)$; it obeys the Liouville equation $\partial_t\rho = -\dv(f\rho)$. Write $\phi_\sigma$ for the density of $N(0,\sigma^2 I)$, so that $p_t = \rho_t * \phi_{\sigma(t)}$. Since $\partial_{\sigma^2}\phi_\sigma = \tfrac12\Delta\phi_\sigma$ and $d\sigma^2/dt = 2r\sigma^2$,
+\begin{align}
+\partial_t p &= (\partial_t\rho) * \phi_\sigma + r\sigma^2\Delta p \nonumber\\
+&= -\dv\big((f\rho)*\phi_\sigma\big) + r\sigma^2\Delta p .
+\end{align}
+Finally $(f\rho)*\phi_\sigma(y) = \int f(x)\rho(x)\phi_\sigma(y - x)\,dx = p(y)\,\E[f(X_t)\mid Y_t = y] = m\,p$. Finite second moments justify the exchange of derivatives and integrals. The entropy rate~\eqref{eq:Sdot} follows from $dS/dt = -\int (\partial_t p)\log p$ (the term $-\int\partial_t p$ vanishes), integration by parts, $\int\nabla p\cdot m = -\int p\,\dv m$, and $\int \nabla p \cdot \nabla \log p = \E|s|^2$.
+
+\subsection{The diffusion matrix and the drift correction}
+\label{app:sde}
+
+By Tweedie's formula~\cite{efron2011}, $\E[X_t - y\mid y] = \sigma^2 s$ and $\E[(X_t - y)(X_t - y)^{\mathsf T}\mid y] = \sigma^2 I + \sigma^4(\nabla s + ss^{\mathsf T})$. Expanding $f(X_t)$ around $y$,
+\begin{multline}
+m\,p = f p + \sigma^2 Df\,\nabla p + \tfrac{\sigma^2}{2}(\Delta f)\,p \\
++ \tfrac{\sigma^4}{2}D^2 f : \nabla\nabla p + \dots ,
+\label{eq:mexp}
+\end{multline}
+where $p(\nabla s + ss^{\mathsf T}) = \nabla\nabla p$ was used. The Fokker--Planck operator of Eq.~\eqref{eq:sde} is $-\dv((f+b)p) + \tfrac12\partial_i\partial_j(G_{ij}p)$. Split $Df = \Sym Df + A$ with $A$ antisymmetric. For a mechanical flow, $f = (\nabla_p H, -\nabla_q H)$ with $H = |p|^2/2 + V(q)$, one has $\dv f = 0$, hence $\partial_i (Df)_{ij} = 0$, $\partial_j (Df)_{ij} = \Delta f_i$, $\partial_i A_{ij} = -\tfrac12\Delta f_j$ and $\partial_j(\Sym Df)_{ij} = \tfrac12\Delta f_i$. With $G = 2\sigma^2(rI - \Sym Df)$,
+\begin{multline}
+\tfrac12\partial_i\partial_j(G_{ij}p) = r\sigma^2\Delta p - \sigma^2\partial_i\big((\Sym Df)_{ij}\partial_j p\big) \\
+ - \tfrac{\sigma^2}{2}\dv\big((\Delta f)p\big),
+\end{multline}
+while the first three terms of Eq.~\eqref{eq:mexp} give
+\begin{multline}
+-\dv(mp) + r\sigma^2\Delta p = -\dv(fp) + r\sigma^2\Delta p \\
+- \sigma^2\partial_i\big((\Sym Df)_{ij}\partial_j p\big) + \tfrac{\sigma^2}{2}(\Delta f)\cdot\nabla p \\
+- \tfrac{\sigma^2}{2}\dv\big((\Delta f)p\big) ,
+\end{multline}
+using $\partial_i(A_{ij}\partial_j p) = (\partial_i A_{ij})\partial_j p$. The two agree if $-\dv(bp) - \tfrac{\sigma^2}{2}\dv((\Delta f)p) = \tfrac{\sigma^2}{2}(\Delta f)\cdot\nabla p - \tfrac{\sigma^2}{2}\dv((\Delta f)p)$, that is, since $\dv\Delta f = \Delta\dv f = 0$, if $b = -\tfrac{\sigma^2}{2}\Delta f = (0, \tfrac{\sigma^2}{2}\nabla_q\Delta_q V)$. This is Eq.~\eqref{eq:G}. For a linear flow $D^2 f = 0$, $b = 0$, and the expansion~\eqref{eq:mexp} terminates, so the SDE reproduces the law of $Y_t$ exactly. Otherwise the last term of Eq.~\eqref{eq:mexp} is a third-order (Kramers--Moyal) term; since $\nabla p \sim p/\sigma$ across a thin state, it is smaller than the diffusion term by a factor of order $\sigma|D^2 f|$. For the pendulum $b = (0, -\tfrac{\sigma^2}{2}\sin q)$ and the relative remainder is of order $\sigma|\sin q|$.

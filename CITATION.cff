@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper and this repository."
+title: "learned-score-arrow-of-time: code, trained networks and verification for \"Can a learned score see the margin of the arrow of time?\""
+authors:
+  - family-names: Namba
+    given-names: Taishi
+    orcid: "https://orcid.org/0009-0002-7098-970X"
+version: v1.0.0
+date-released: 2026-10-16
+license: MIT
+repository-code: "https://github.com/neginyan/learned-score-arrow-of-time"

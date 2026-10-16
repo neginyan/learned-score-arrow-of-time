@@ -1,0 +1,24 @@
+\section{Introduction}
+\label{sec:intro}
+
+A Hamiltonian flow preserves the Gibbs entropy of every ensemble, yet an observer with a finite resolution sees an arrow of time. In a series of papers~\cite{namba2026arrow,namba2026gap,namba2026many} this was made quantitative for an observer who looks through a Gaussian window whose width grows as $\sigma(t) = \sigma_0 e^{rt}$. The coarse-grained entropy $S$ obeys
+\begin{equation}
+\frac{dS}{dt} = \sigma^2\,\tr F\,(r - R),
+\label{eq:SC}
+\end{equation}
+with $F$ the Fisher matrix of the coarse-grained density and $R$ a critical rate of the state. For every Gaussian state $R \leq \kappa$, the largest symmetric strain rate of the flow~\cite{namba2026gap}, and the best state stays below $\kappa$ by a margin proportional to $\sigma$, the \emph{resolution gap}~\cite{namba2026gap}. In many degrees of freedom the gap is given by a matrix formula $\Gamma\sigma$, to which the best Gaussian state was found to come within a correction of order $\sigma^2$~\cite{namba2026many}.
+
+The forward process behind Eq.~\eqref{eq:SC}, a deterministic flow followed by a widening Gaussian blur, is also the forward process of a phase-space diffusion model~\cite{dockhorn2022,namba2026threshold}. Diffusion models learn the score $\nabla\log p_t$ of the blurred density from samples and run the process backwards to generate~\cite{song2021,ho2020}. This suggests a question that connects the two fields. \emph{Can a score learned from samples see the margin of the arrow of time?} If it can, the margin becomes a measurable property of trained generative models, and the resolution gap of Refs.~\cite{namba2026gap,namba2026many} becomes testable with the tools of machine learning.
+
+Answering the question requires separating two thresholds that are easily confused.
+\begin{enumerate}
+\item[(I)] A stochastic differential equation (SDE) with the physical flow as its drift and the widening blur as its noise exists only if the required diffusion matrix is positive semidefinite everywhere. This happens if and only if $r \geq \kappa$, at every $\sigma$ (Proposition~\ref{prop:sde}). Below $\kappa$ the noise would have to remove width along the stretching direction.
+\item[(II)] The coarse-grained entropy grows if and only if $r > R$ (Eq.~\eqref{eq:SC}), and $R < \kappa$ by a margin proportional to $\sigma$.
+\end{enumerate}
+Between them lies a band $R < r < \kappa$ in which the arrow of time is present although no SDE with the physical drift can produce the blur. This article shows that a learned score sees both thresholds and the band between them. Our results are the following.
+\begin{enumerate}
+\item The critical rate can be estimated from learned fields in an integration-by-parts (divergence) form in which each learned field appears once, so that its errors enter only linearly. Errors orthogonal to the true fields leave this form exact but bias the direct form by the square of the score error (Proposition~\ref{prop:linear}). For smooth random errors the divergence form is 5 to 60 times more accurate, and in no case tested less accurate (Sec.~\ref{sec:estimators}).
+\item Small networks trained by denoising score matching read the margin $(\kappa - R)/\sigma$ to within $2.2\%$ at 36 points of a pendulum (Sec.~\ref{sec:twodim}). In four dimensions (two coupled pendulums) they read it to within $1.4\%$ at 24 points, and agree with the formula of Ref.~\cite{namba2026many}, including its finite-resolution correction, to within $2\%$ (Sec.~\ref{sec:fourdim}).
+\item In the band, the SDE with the physical drift departs from the true law while the entropy, measured directly with nearest-neighbour estimators, keeps growing as predicted. The reverse SDE fails exactly at $r = \kappa$ for every $\sigma$, in two and four dimensions, with exact and with learned scores. The apparent knee slightly below $\kappa$ is predicted by the shape of the missing diffusion (Sec.~\ref{sec:band}).
+\end{enumerate}
+Throughout, we separate what is proved from what is observed numerically, and we report the cases in which the learned score did not reach the required accuracy.
