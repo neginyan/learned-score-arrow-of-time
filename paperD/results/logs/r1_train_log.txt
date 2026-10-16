@@ -1,0 +1,4 @@
+gauss_s0.03_eps_seed1_B16384: step 20000  loss 1.89462  (2378 s)
+gauss_s0.03_eps_seed1_B16384: step 40000  loss 1.88870  (4872 s)
+gauss_s0.03_eps_seed1_B16384: step 60000  loss 1.88889  (6793 s)
+gauss_s0.03_eps_seed1_B16384: step 75000  loss 1.88808  (8220 s)

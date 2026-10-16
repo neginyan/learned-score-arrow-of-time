@@ -1,0 +1,74 @@
+{
+ "eps": 0.1,
+ "sig0": 0.1,
+ "N": 50000,
+ "R_divergence_samples": 0.9270938003521302,
+ "R_plain_exact_fields": 0.9218197455229608,
+ "margin_over_sigma": 1.2539998070391423,
+ "rows": [
+  {
+   "eta": 0.003,
+   "div_score_smooth_p95": 0.00016346573504960612,
+   "div_score_scale": 0.02757187673548378,
+   "div_m_smooth_p95": 0.005398786489869803,
+   "div_m_scale": 0.027654592365687902,
+   "plain_score_smooth_p95": 0.003402218928797389,
+   "plain_score_scale": 0.02757187673548267,
+   "plain_m_smooth_p95": 0.005398786489869803,
+   "plain_m_scale": 0.027654592365687902
+  },
+  {
+   "eta": 0.01,
+   "div_score_smooth_p95": 0.0005448684627341607,
+   "div_score_scale": 0.09126928173494808,
+   "div_m_smooth_p95": 0.017995954966229695,
+   "div_m_scale": 0.0921819745522956,
+   "plain_score_smooth_p95": 0.010758893590277114,
+   "plain_score_scale": 0.09126928173494919,
+   "plain_m_smooth_p95": 0.017995954966229695,
+   "plain_m_scale": 0.0921819745522956
+  },
+  {
+   "eta": 0.02,
+   "div_score_smooth_p95": 0.0010896874444480957,
+   "div_score_scale": 0.1807489697103859,
+   "div_m_smooth_p95": 0.03599190993246139,
+   "div_m_scale": 0.1843639491045923,
+   "plain_score_smooth_p95": 0.01985236415723144,
+   "plain_score_scale": 0.180748969710387,
+   "plain_m_smooth_p95": 0.03599190993246139,
+   "plain_m_scale": 0.1843639491045923
+  },
+  {
+   "eta": 0.05,
+   "div_score_smooth_p95": 0.0027238476248339647,
+   "div_score_scale": 0.4389617835823634,
+   "div_m_smooth_p95": 0.08997977483115442,
+   "div_m_scale": 0.4609098727614813,
+   "plain_score_smooth_p95": 0.05784471909324088,
+   "plain_score_scale": 0.43896178358236226,
+   "plain_m_smooth_p95": 0.08997977483115442,
+   "plain_m_scale": 0.4609098727614813
+  },
+  {
+   "eta": 0.1,
+   "div_score_smooth_p95": 0.005446459437567221,
+   "div_score_scale": 0.8380179504754215,
+   "div_m_smooth_p95": 0.17995954966230987,
+   "div_m_scale": 0.9218197455229615,
+   "plain_score_smooth_p95": 0.16043109618952098,
+   "plain_score_scale": 0.8380179504754226,
+   "plain_m_smooth_p95": 0.17995954966230987,
+   "plain_m_scale": 0.9218197455229615
+  }
+ ],
+ "seconds": 68.06585669517517,
+ "div_eta_req_score_10pct": 0.01,
+ "div_eta_req_score_50pct": 0.05,
+ "div_eta_req_m_10pct": 0.01,
+ "div_eta_req_m_50pct": 0.05,
+ "plain_eta_req_score_10pct": 0.01,
+ "plain_eta_req_score_50pct": 0.05,
+ "plain_eta_req_m_10pct": 0.01,
+ "plain_eta_req_m_50pct": 0.05
+}
