@@ -1,0 +1,46 @@
+{
+ "eps": 0.3,
+ "sig0": 0.1,
+ "mode": "forward",
+ "T": 0.5,
+ "rows": [
+  {
+   "r_over_kappa": 0.6,
+   "varVp_rel": 0.4263781830745186,
+   "ref_sampling_se": 0.006324555320336759
+  },
+  {
+   "r_over_kappa": 0.8,
+   "varVp_rel": 0.14911275969218285,
+   "ref_sampling_se": 0.006324555320336759
+  },
+  {
+   "r_over_kappa": 0.9,
+   "varVp_rel": 0.04572337787566161,
+   "ref_sampling_se": 0.006324555320336759
+  },
+  {
+   "r_over_kappa": 0.95,
+   "varVp_rel": 0.01252311898161329,
+   "ref_sampling_se": 0.006324555320336759
+  },
+  {
+   "r_over_kappa": 1.0,
+   "varVp_rel": -0.0010316273993846714,
+   "ref_sampling_se": 0.006324555320336759
+  },
+  {
+   "r_over_kappa": 1.1,
+   "varVp_rel": -0.0021269360352543787,
+   "ref_sampling_se": 0.006324555320336759
+  },
+  {
+   "r_over_kappa": 1.3,
+   "varVp_rel": -0.002508518508483437,
+   "ref_sampling_se": 0.006324555320336759
+  }
+ ],
+ "clipping": "per point: G = U diag(g) U^T (numpy eigh), G_+ = U diag(max(g, 0)) U^T; ODE uses the unclipped G",
+ "fit_knee_r_over_kappa": 0.9577988655846348,
+ "seconds": 234.44952392578125
+}

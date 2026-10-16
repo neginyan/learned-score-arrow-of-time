@@ -1,0 +1,60 @@
+{
+ "eps": 0.3,
+ "sig0": 0.3,
+ "mode": "exact",
+ "T": 0.5,
+ "rows": [
+  {
+   "r_over_kappa": 0.6,
+   "sde_varVp_rel": -0.2497174841238866,
+   "ode_varVp_rel": -0.0560536592174109,
+   "sde_minus_ode": -0.1936638249064757,
+   "n_paths": 2000
+  },
+  {
+   "r_over_kappa": 0.8,
+   "sde_varVp_rel": -0.12855844511776449,
+   "ode_varVp_rel": -0.05946114575864336,
+   "sde_minus_ode": -0.06909729935912112,
+   "n_paths": 2000
+  },
+  {
+   "r_over_kappa": 0.9,
+   "sde_varVp_rel": -0.0857979927475695,
+   "ode_varVp_rel": -0.06141767384244612,
+   "sde_minus_ode": -0.024380318905123377,
+   "n_paths": 2000
+  },
+  {
+   "r_over_kappa": 0.95,
+   "sde_varVp_rel": -0.07649310901287742,
+   "ode_varVp_rel": -0.062461226675604054,
+   "sde_minus_ode": -0.014031882337273371,
+   "n_paths": 2000
+  },
+  {
+   "r_over_kappa": 1.0,
+   "sde_varVp_rel": -0.07501722241232045,
+   "ode_varVp_rel": -0.06354908399140324,
+   "sde_minus_ode": -0.011468138420917207,
+   "n_paths": 2000
+  },
+  {
+   "r_over_kappa": 1.1,
+   "sde_varVp_rel": -0.07628529866157985,
+   "ode_varVp_rel": -0.0658599043183169,
+   "sde_minus_ode": -0.01042539434326295,
+   "n_paths": 2000
+  },
+  {
+   "r_over_kappa": 1.3,
+   "sde_varVp_rel": -0.07242086323368713,
+   "ode_varVp_rel": -0.07103480559816677,
+   "sde_minus_ode": -0.0013860576355203547,
+   "n_paths": 2000
+  }
+ ],
+ "clipping": "per point: G = U diag(g) U^T (numpy eigh), G_+ = U diag(max(g, 0)) U^T; ODE uses the unclipped G",
+ "fit_knee_r_over_kappa": 0.9780034144075666,
+ "seconds": 2879.1670739650726
+}

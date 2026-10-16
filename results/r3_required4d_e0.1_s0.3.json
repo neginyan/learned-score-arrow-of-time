@@ -1,0 +1,74 @@
+{
+ "eps": 0.1,
+ "sig0": 0.3,
+ "N": 50000,
+ "R_divergence_samples": 0.7500146334365876,
+ "R_plain_exact_fields": 0.7490920974738163,
+ "margin_over_sigma": 1.0082638253981895,
+ "rows": [
+  {
+   "eta": 0.003,
+   "div_score_smooth_p95": 8.039422756056518e-05,
+   "div_score_scale": 0.007468515428452616,
+   "div_m_smooth_p95": 0.0010995932743895214,
+   "div_m_scale": 0.007490920974738691,
+   "plain_score_smooth_p95": 0.0009081302515006981,
+   "plain_score_scale": 0.007468515428452986,
+   "plain_m_smooth_p95": 0.0010995932743895214,
+   "plain_m_scale": 0.007490920974738691
+  },
+  {
+   "eta": 0.01,
+   "div_score_smooth_p95": 0.000267960286800817,
+   "div_score_scale": 0.024722511467782926,
+   "div_m_smooth_p95": 0.003665310914631331,
+   "div_m_scale": 0.024969736582461193,
+   "plain_score_smooth_p95": 0.0032013864666726195,
+   "plain_score_scale": 0.02472251146778256,
+   "plain_m_smooth_p95": 0.003665310914631331,
+   "plain_m_scale": 0.024969736582461193
+  },
+  {
+   "eta": 0.02,
+   "div_score_smooth_p95": 0.0005358620940578523,
+   "div_score_scale": 0.04896026780874604,
+   "div_m_smooth_p95": 0.007330621829262978,
+   "div_m_scale": 0.049939473164921276,
+   "plain_score_smooth_p95": 0.006899375756651452,
+   "plain_score_scale": 0.048960267808746405,
+   "plain_m_smooth_p95": 0.007330621829262978,
+   "plain_m_scale": 0.049939473164921276
+  },
+  {
+   "eta": 0.05,
+   "div_score_smooth_p95": 0.0013392168347046342,
+   "div_score_scale": 0.11890350753552714,
+   "div_m_smooth_p95": 0.018326554573156212,
+   "div_m_scale": 0.12484868291230337,
+   "plain_score_smooth_p95": 0.020942117178255386,
+   "plain_score_scale": 0.11890350753552603,
+   "plain_m_smooth_p95": 0.018326554573156212,
+   "plain_m_scale": 0.12484868291230337
+  },
+  {
+   "eta": 0.1,
+   "div_score_smooth_p95": 0.002676973640831953,
+   "div_score_scale": 0.22699760529509655,
+   "div_m_smooth_p95": 0.03665310914631279,
+   "div_m_scale": 0.249697365824606,
+   "plain_score_smooth_p95": 0.05390535489556801,
+   "plain_score_scale": 0.22699760529509616,
+   "plain_m_smooth_p95": 0.03665310914631279,
+   "plain_m_scale": 0.249697365824606
+  }
+ ],
+ "seconds": 64.43059468269348,
+ "div_eta_req_score_10pct": 0.02,
+ "div_eta_req_score_50pct": 0.1,
+ "div_eta_req_m_10pct": 0.02,
+ "div_eta_req_m_50pct": 0.1,
+ "plain_eta_req_score_10pct": 0.02,
+ "plain_eta_req_score_50pct": 0.1,
+ "plain_eta_req_m_10pct": 0.02,
+ "plain_eta_req_m_50pct": 0.1
+}
