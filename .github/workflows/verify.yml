@@ -1,0 +1,20 @@
+name: verify
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      OMP_NUM_THREADS: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: pip install -r requirements.txt
+      - name: independent checks of the analytical statements
+        run: python check_paperD.py
+        working-directory: independent_checks
+      - name: verification suite of paper D
+        run: python verification/run_all_D.py
+        working-directory: paperD
