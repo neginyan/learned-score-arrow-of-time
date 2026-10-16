@@ -7,5 +7,15 @@ authors:
     orcid: "https://orcid.org/0009-0002-7098-970X"
 version: v1.0.0
 date-released: 2026-10-16
+doi: 10.5281/zenodo.23407853
 license: MIT
 repository-code: "https://github.com/neginyan/learned-score-arrow-of-time"
+preferred-citation:
+  type: article
+  title: "Can a learned score see the margin of the arrow of time?"
+  authors:
+    - family-names: Namba
+      given-names: Taishi
+      orcid: "https://orcid.org/0009-0002-7098-970X"
+  year: 2026
+  doi: 10.5281/zenodo.23408213

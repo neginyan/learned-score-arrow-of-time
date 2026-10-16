@@ -1,10 +1,12 @@
 # learned-score-arrow-of-time
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23407853.svg)](https://doi.org/10.5281/zenodo.23407853)
 [![verify](https://github.com/neginyan/learned-score-arrow-of-time/actions/workflows/verify.yml/badge.svg)](https://github.com/neginyan/learned-score-arrow-of-time/actions/workflows/verify.yml)
 
 Code, trained networks, results and verification for the paper
 
-> T. Namba, *Can a learned score see the margin of the arrow of time?*, preprint (2026).
+> T. Namba, *Can a learned score see the margin of the arrow of time?*, preprint v1.0, Zenodo (2026),
+> [doi:10.5281/zenodo.23408213](https://doi.org/10.5281/zenodo.23408213).
 
 It continues three earlier papers:
 
